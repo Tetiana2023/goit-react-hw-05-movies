@@ -10,9 +10,9 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
   return response.data;
 };
 
-const getSearchMovie = async search => {
+const getSearchMovie = async (search) => {
   const response = await axios.get(
-    `${BASE_URL}search/movie?api_key=${API_KEY}&query=${search}&language=en-US&page=1&include_adult=false`
+    `${BASE_URL}search/movie?api_key=${API_KEY}&query=${search}&language=en-US&page=1`
   );
   return response.data;
 };
