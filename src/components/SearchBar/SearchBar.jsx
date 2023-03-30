@@ -15,15 +15,15 @@ export const SearchBar = ({onSubmit}) => {
     const hendleSubmit = (e) => {
         e.preventDefault();
         onSubmit(inputValue);
-      // if(!inputValue.trim()){
-      //   alert('PLease, fill search field.');
-      //   return;
-      // }
-      // setInputValue('');
+      if(!inputValue.trim()){
+        alert('PLease, fill search field.');
+        return;
+      }
+      setInputValue('');
     }
 
     return (
-    
+    <div className={css.searchbar}>    
         <form  className={css.searchForm} onSubmit={hendleSubmit}>
         <button type="submit" className={css.searchFormbutton} >
          <FcSearch style={{marginRight:8, width:"20", height:"20"}}/>
@@ -39,6 +39,6 @@ export const SearchBar = ({onSubmit}) => {
           value={inputValue}
         />
       </form>
-     
+     </div>
     )
 }

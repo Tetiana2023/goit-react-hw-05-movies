@@ -1,8 +1,8 @@
 import { MoviesList } from 'components/MoviesList/MoviesList';
-// import { SearchBar } from 'components/SearchBar/SearchBar';
-import { useEffect } from 'react';
-import { useState, useSearchParams } from 'react';
+import { SearchBar } from 'components/SearchBar/SearchBar';
+import { useEffect, useState } from 'react';
 import { getSearchMovie } from 'components/servises/fetch';
+import { useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
   const [movies, setMovies] = useState(null);
@@ -25,43 +25,15 @@ export const Movies = () => {
     getMovieSeach(query);
   }, [query]);
   
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    setSearchParams({ query: form.elements.query.value.trim() });
-    form.reset();
+ const handleFormSubmit = query => {
+    const nextFilm = query !== '' ? { query } : {};
+    setSearchParams(nextFilm);
+    setMovies([]);
   };
-
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="query" />
-        <button type="submit">Search</button>
-      </form>
-      {movies && <MoviesList movies={movies} />}
-    </main>
+    <>
+      <SearchBar onSubmit={handleFormSubmit} /> 
+      {movies && <MoviesList movies={movies} />} 
+    </>
   );
-
-
-
-//   const updateQueryString = (query) => {
-//     const nextParams = query !== "" ? { query } : {};
-//     setSearchParams(nextParams);
-// };
-
-// const searchMovieByInput = (inputValue) => {
-//     setMovies(null);
-//     updateQueryString(inputValue);
-// }
-//  const handleFormSubmit = query => {
-//     const nextFilm = query !== '' ? { query } : {};
-//     setSearchParams(nextFilm);
-//     setMovies([]);
-//   };
-//   return (
-//     <>
-//       <SearchBar onSubmit={handleFormSubmit} /> 
-//       {movies && <MoviesList movies={movies} />} 
-//     </>
-//   );
 }
