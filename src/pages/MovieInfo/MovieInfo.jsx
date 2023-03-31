@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getMovieDetails } from 'components/servises/fetch';
 import { NavLink, Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 
 export const MovieInfo = () => {
   const [film, setFilm] = useState({});
@@ -24,7 +24,7 @@ export const MovieInfo = () => {
   console.log(film);
 
   return (
-  <>
+    <main>
       <Link to="/">Go back</Link>
       <img
         width={400}
@@ -49,6 +49,10 @@ export const MovieInfo = () => {
           <NavLink to={`/movies/${film.id}/reviews`}>Reviews</NavLink>
         </li>
       </ul>
-    </>
+      <Outlet />
+    </main>
   );
 };
+/* <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense> */
