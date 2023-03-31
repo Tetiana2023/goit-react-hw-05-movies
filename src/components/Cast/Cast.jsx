@@ -24,15 +24,14 @@ export const Cast = () => {
   return (
     <>
       <ul>
-        {actor.map(({ name, id, profile_path, character }) => {
-          return (
+        {actor.map(({ name, id, profile_path, character }) => (
             <li key={id}>
               <img src={profile_path} alt={name} />
               <p> {name}</p>
               <p> {character}</p>
             </li>
-          );
-        })}
+          )
+        )}
       </ul>
     </>
   );
