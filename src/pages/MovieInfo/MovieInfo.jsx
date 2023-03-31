@@ -8,11 +8,13 @@ export const MovieInfo = () => {
   const [, setError] = useState('');
   const { movieId } = useParams;
 
+
   useEffect(() => {
     const getFilmInfo = async movieId => {
       try {
         const response = await getMovieDetails(movieId);
-        setFilm(response);
+
+           setFilm(response);
         console.log(response)
       } catch (error) {
         setError(error.message);
@@ -30,15 +32,15 @@ export const MovieInfo = () => {
         alt={film.title}
       ></img>
       <h2>
-        {film.title}({new Date().getFullYear(film.release_date)})
+        {film.title} {film.release_date}
       </h2>
       <p>User score: {Math.round(film.vote_average * 10)}%</p>
       <p>Overview {film.overview}</p>
       <p>Genres{film.genres?.map(genre => genre.name)}</p>
-      
+
       <h3> Additional information</h3>
-      <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
-      <NavLink to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
+      <NavLink to={`/movies/${film.id}/cast`}>Cast</NavLink>
+      <NavLink to={`/movies/${film.id}/reviews`}>Reviews</NavLink>
       
     </>
   );

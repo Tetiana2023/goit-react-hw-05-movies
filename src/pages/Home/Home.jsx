@@ -11,7 +11,7 @@ export const Home = () => {
     const getMovies = async () => {
       try {
         const response = await getTrendingMovie();
-        console.log(response.rezults);
+        // console.log(response.rezults);
         setMovies(response.results);
       } catch (error) {}
     };
