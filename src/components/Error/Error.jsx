@@ -1,6 +1,7 @@
-export const Error = ()=> {
+ const Error = ()=> {
     return (
         <>
        </>
     )
 }
+export default Error;

@@ -1,10 +1,10 @@
-import { MoviesList } from 'components/MoviesList/MoviesList';
+import  MoviesList  from 'components/MoviesList/MoviesList';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { getTrendingMovie } from 'components/servises/fetch';
 // import { SearchBar } from 'components/SeachBar/SearchBar';
 
-export const Home = () => {
+ const Home = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -28,3 +28,4 @@ export const Home = () => {
     </>
   );
 };
+export default Home;

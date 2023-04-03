@@ -1,10 +1,10 @@
-import { MoviesList } from 'components/MoviesList/MoviesList';
+import  MoviesList  from 'components/MoviesList/MoviesList';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
 import { getSearchMovie } from 'components/servises/fetch';
 import { useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+ const Movies = () => {
   const [movies, setMovies] = useState(null);
   const [, setError] = useState('')
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,6 +18,9 @@ export const Movies = () => {
       try {
         const response = await getSearchMovie(search);
         setMovies(response.results);
+        if(response.results.length === 0){
+          alert('Nothing was found')
+        }
       } catch (error) {
         setError(error.massige);
       }
@@ -37,3 +40,4 @@ export const Movies = () => {
     </>
   );
 }
+export default Movies;

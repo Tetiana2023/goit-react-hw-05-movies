@@ -4,7 +4,7 @@ import { getMovieCredits } from 'components/servises/fetch';
 import { useParams } from 'react-router-dom';
 import css from './Cast.module.css';
 
-export const Cast = () => {
+ const Cast = () => {
   const [actor, setActor] = useState([]);
   const [, setError] = useState(null);
   const { movieId } = useParams();
@@ -26,7 +26,7 @@ export const Cast = () => {
     <>
       <ul className={css.actorList}>
         {actor.map(({ name, id, profile_path, character }) => (
-          <li key={id}>
+          <li key={id} className={css.actorItem}>
             <img 
               src={
                 profile_path ? (
@@ -45,3 +45,4 @@ export const Cast = () => {
     </>
   );
 };
+export default Cast;
