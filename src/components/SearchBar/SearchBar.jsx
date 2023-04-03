@@ -2,8 +2,7 @@ import { useState } from 'react';
 import {FcSearch} from 'react-icons/fc';
 import css from './SearchBar.module.css';
 import Notiflix from 'notiflix';
-// import { toast } from 'react-toastify';
-
+import PropTypes from 'prop-types';
 
 export const SearchBar = ({onSubmit}) => {
     const [inputValue, setInputValue] = useState('');
@@ -42,4 +41,8 @@ export const SearchBar = ({onSubmit}) => {
       </form>
      </div>
     )
+};
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func,
+
 }
