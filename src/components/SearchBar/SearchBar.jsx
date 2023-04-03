@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {FcSearch} from 'react-icons/fc';
 import css from './SearchBar.module.css';
+import Notiflix from 'notiflix';
 // import { toast } from 'react-toastify';
 
 
@@ -16,7 +17,7 @@ export const SearchBar = ({onSubmit}) => {
         e.preventDefault();
         onSubmit(inputValue);
       if(!inputValue.trim()){
-        alert('PLease, fill search field.');
+        Notiflix.Notify.info('PLease, fill search field.');
         return;
       }
       setInputValue('');

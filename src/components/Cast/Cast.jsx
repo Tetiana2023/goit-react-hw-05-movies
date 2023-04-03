@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { getMovieCredits } from 'components/servises/fetch';
 import { useParams } from 'react-router-dom';
+import pngrobot from 'images/pngrobot.webp'
 import css from './Cast.module.css';
 
  const Cast = () => {
@@ -27,12 +28,11 @@ import css from './Cast.module.css';
       <ul className={css.actorList}>
         {actor.map(({ name, id, profile_path, character }) => (
           <li key={id} className={css.actorItem}>
-            <img 
-              src={
+            <img className={css.imgActor}              src={
                 profile_path ? (
                   `https://image.tmdb.org/t/p/w200/${profile_path}`
                 ) : (
-                  <p>Soryy? we don't have photo</p>
+                  pngrobot
                 )
               }
               alt={name}

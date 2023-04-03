@@ -3,6 +3,7 @@ import { SearchBar } from 'components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
 import { getSearchMovie } from 'components/servises/fetch';
 import { useSearchParams } from 'react-router-dom';
+import Notiflix from 'notiflix';
 
  const Movies = () => {
   const [movies, setMovies] = useState(null);
@@ -19,7 +20,7 @@ import { useSearchParams } from 'react-router-dom';
         const response = await getSearchMovie(search);
         setMovies(response.results);
         if(response.results.length === 0){
-          alert('Nothing was found')
+          Notiflix.Notify.info('Nothing was found');
         }
       } catch (error) {
         setError(error.massige);
