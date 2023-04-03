@@ -56,3 +56,4 @@ export const MovieInfo = () => {
 /* <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense> */
+      // <NavLink to={`/movies/${film.id}/reviews`}>Reviews</NavLink>
