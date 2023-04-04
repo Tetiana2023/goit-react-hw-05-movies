@@ -20,13 +20,13 @@
 .navLink{
     list-style: none;
     font-size: xx-large;
-    color: blue;
     text-decoration: none;
     color: gray;
 }
 .navLink:hover{
     color: white;
 }
-/* .navLink:active{
+
+/* .navLink.active{
     color: black;
 } */
